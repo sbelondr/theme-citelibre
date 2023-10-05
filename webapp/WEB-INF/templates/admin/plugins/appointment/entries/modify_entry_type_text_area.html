@@ -1,0 +1,83 @@
+<#include "/admin/util/editor/editor.html" />
+<@row>
+    <@columns>
+        <@box color='primary'>
+            <@boxHeader title='#i18n{appointment.modifyEntry.titleQuestion} : "${form.title}"' />
+			<@boxBody>
+			
+			<@tform action='jsp/admin/plugins/appointment/ManageAppointmentFormEntries.jsp'>
+				<fieldset>
+					<legend class="hidden">#i18n{appointment.modifyEntry.titleQuestion} : '${form.title}'</legend>
+					<@input type='hidden' name='id_entry' value='${entry.idEntry}' />
+					<@input type='hidden' name='action' value='doModifyEntry' />
+					
+					<@formGroup labelFor='' labelKey='#i18n{appointment.createEntry.labelType}'>
+						<@staticText>
+							<@tag color='info'>
+								${entry.entryType.title}
+							</@tag>
+						</@staticText>
+					</@formGroup>
+					
+					<@formGroup labelFor='title' labelKey='#i18n{appointment.labelTitle}' helpKey='#i18n{appointment.createEntry.labelTitleComment}' mandatory=true>
+						<@input type='text' name='title' id='title' value='${entry.title}' maxlength=255 />
+					</@formGroup>
+					
+					<@formGroup labelFor='help_message' labelKey='#i18n{appointment.createEntry.labelHelpMessage}' helpKey='#i18n{appointment.createEntry.labelHelpMessageComment}'>
+						<@input type='textarea' name='help_message' id='help_message' rows=10>${entry.helpMessage}</@input>
+					</@formGroup>
+					
+					<@formGroup labelFor='comment' labelKey='#i18n{appointment.comment.name}' helpKey=''>
+						<@input type='textarea' name='comment' id='comment' rows=2>${entry.comment}</@input>
+					</@formGroup>
+					
+					
+					<@formGroup labelFor='value' labelKey='#i18n{appointment.defaultValue.name}'>
+						<#assign field=getFieldByCode( entry, "text_config")>
+						<@input type='textarea' name='value' id='value' rows=10>${field.value}</@input>
+					</@formGroup>
+					
+					<@formGroup labelKey='#i18n{appointment.createEntry.labelMandatory}'>
+						<@checkBox labelFor='mandatory' labelKey='#i18n{appointment.createEntry.labelMandatory}' name='mandatory' id='mandatory' value='1' checked=entry.mandatory />
+					</@formGroup>
+					
+					<@formGroup labelKey='#i18n{appointment.createEntry.labelOnlyDisplayInBack}'>
+						<@checkBox labelFor='only_display_in_back' labelKey='#i18n{appointment.createEntry.labelOnlyDisplayInBack}' name='only_display_in_back' id='only_display_in_back' value='1' checked=entry.onlyDisplayInBack />
+					</@formGroup>
+					
+					<@formGroup labelFor='width' labelKey='#i18n{appointment.createEntry.labelWidth}' mandatory=true>
+						<#assign field=getFieldByCode( entry, "width")>
+						<@input type='text' name='width' id='width' value='${field.value}' />
+					</@formGroup>
+					
+					<@formGroup labelFor='height' labelKey='#i18n{appointment.createEntry.labelHeight}' mandatory=true>
+						<#assign field=getFieldByCode( entry, "height")>
+						<@input type='text' name='height' id='height' inputSize=5 value='${field.value}' />
+					</@formGroup>
+					
+					<@formGroup labelFor='max_size_enter' labelKey='#i18n{appointment.createEntry.labelMaxSizeEnter}'>
+						<#assign field_max_size=getFieldValueByCode( entry, "max_size")>
+						<@input type='text' name='max_size_enter' id='max_size_enter' value=field_max_size />
+					</@formGroup>
+					
+					<@formGroup labelFor='css_class' labelKey='#i18n{appointment.createEntry.labelCSSClass}' helpKey='#i18n{appointment.createEntry.labelCSSClassComment}'>
+						<@input type='text' name='css_class' id='css_class' value='${entry.CSSClass!}' maxlength=255 />
+					</@formGroup>
+					
+					<@formGroup labelKey='#i18n{appointment.createEntry.labelUseRichText}' helpKey='#i18n{appointment.createEntry.labelUseRichTextComment}'>
+						<!#-- 	fieldInLine means use rich text -->
+						<@checkBox labelFor='css_class' labelKey='#i18n{appointment.createEntry.labelUseRichText}' name='useRichText' id='useRichText' value='true' checked=entry.fieldInLine />
+					</@formGroup>
+					
+					<@formGroup>
+						<@button type='submit' buttonIcon='check' title='#i18n{appointment.labelSave}' />
+						<@button type='submit' buttonIcon='times' title='#i18n{appointment.labelCancel}' name='cancel' id='cancel' value='cancel' cancel=true />
+					</@formGroup>
+				</fieldset>
+                </@tform>
+            </@boxBody>
+        </@box>
+    </@columns>
+</@row>
+<@initEditor />
+

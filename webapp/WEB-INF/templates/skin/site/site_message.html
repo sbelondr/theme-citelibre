@@ -1,0 +1,26 @@
+<#assign msgTitle><#if title??>${title!?trim}<#else>#i18n{portal.util.error404.title}</#if></#assign>
+<@cErrorMessage title=msgTitle text=text>
+<#if msgTitle?trim?lower_case !='erreur' && msgTitle?trim?lower_case !='stop' && msgTitle?trim?lower_case !='confirmation' && msgTitle?trim !=''><@p>${title!}</@p></#if>
+<@cRow>
+	<@cCol class='d-flex justify-content-center align-items-center'>
+		<@cSection class='w-50 d-flex' params='style="justify-content: space-evenly;"'>
+		<#if url?has_content>
+			<@cForm action='${url!}' params=' target="${target!}" '>
+				<#if list_parameters?exists><#assign keys = list_parameters?keys><#list keys as key><@input type='hidden' name=key! value=list_parameters[key]! /></#list></#if>
+				<@cBtn label='#i18n{portal.util.labelValidate}' class='btn btn-action mr-2'  />
+			</@cForm>
+		</#if>
+		<#if back_url?has_content>
+			<@cForm action='${back_url!}' params=' target="${target!}" '>
+				<#if list_parameters?exists><#list keys as key><@input type='hidden' name=key! value=list_parameters[key]! /></#list></#if>
+				<#if cancel_button gte 1 > 
+					<@cBtn label='#i18n{portal.util.labelBack}' class='btn btn-action mr-2' params='name="cancel"' />
+				</#if>
+			</@cForm>
+		<#else>
+			<@cLink href='./' label='#i18n{portal.util.labelBack}' title='#i18n{portal.util.labelBack}' class='btn btn-action' />
+		</#if>
+		</@cSection>
+	</@cCol>
+</@cRow>
+</@cErrorMessage>

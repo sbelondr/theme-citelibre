@@ -1,0 +1,39 @@
+<@row>
+    <@columns>
+        <@box color='primary'>
+            <@boxHeader title='#i18n{appointment.modifyEntry.titleQuestion} : "${form.title}"' />
+			<@boxBody>
+				<fieldset>
+				<legend class="hidden">#i18n{appointment.modifyEntry.titleQuestion} : "${form.title}"</legend>
+				<@tform action='jsp/admin/plugins/appointment/ManageAppointmentFormEntries.jsp'>
+					<@input type='hidden' name='id_entry' value='${entry.idEntry}' />
+					<@input type='hidden' name='action' value='doModifyEntry' />
+					
+					<@formGroup labelFor='' labelKey='#i18n{appointment.createEntry.labelType}'>
+						<@staticText>
+							<@tag color='info'>
+								${entry.entryType.title}
+							</@tag>
+						</@staticText>
+					</@formGroup>
+					<@formGroup labelFor='title' labelKey='#i18n{appointment.labelTitle}' mandatory=true>
+						<@input type='text' name='title' id='title' value='${entry.title}' maxlength=255 />
+					</@formGroup>
+					<@formGroup labelKey='#i18n{appointment.createEntry.labelMandatory}' helpKey='#i18n{appointment.createEntry.labelMandatoryCommentForEntryTypeSession}'>
+						<@checkBox labelFor='mandatory' labelKey='#i18n{appointment.createEntry.labelMandatory}' name='mandatory' id='mandatory' value='1' checked=entry.checked />
+					</@formGroup>
+					<@formGroup labelKey='#i18n{appointment.createEntry.labelAttributeName}' helpKey='#i18n{appointment.createEntry.labelAttributeNameComment}' mandatory=true>
+						<#assign field=getFieldByCode( entry, "attribute_name")>
+						<@input type='text' name='value' id='value' maxlength=255 value='${field.value}' />
+					</@formGroup>
+					<@formGroup>
+						<@button type='submit' name='save' id='save' buttonIcon='check' title='#i18n{appointment.labelSave}' />
+						<@button type='submit' name='apply' id='apply' buttonIcon='check' title='#i18n{appointment.modifyEntry.buttonApply}' />
+						<@button type='submit' name='cancel' id='cancel' value='cancel' cancel=true buttonIcon='times' title='#i18n{appointment.labelCancel}' />
+					</@formGroup>
+				</@tform>
+			</fieldset>
+			</@boxBody>
+		</@box>
+	</@columns>
+</@row>

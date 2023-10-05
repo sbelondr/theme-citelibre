@@ -1,0 +1,39 @@
+/***********************************************
+/* SPECIFIC LUTECE DEFAULT SITE THEME STYLES   *
+/* DO NOT REMOVE                               *
+***********************************************/
+.admin_column_outline .column-info,
+.admin_column_outline .column-content .site-toolbar{ 	
+    opacity: 0;
+    transition: all .25s;
+}
+
+.admin_column_outline:hover .column-info,	
+.admin_column_outline .column-content:hover .site-toolbar{ 
+    opacity: 1;
+} 
+
+.admin_column_outline .column-content{	
+    height: 100vh 
+}
+
+.admin_column_outline .column-content .site-toolbar + div:hover{ 
+    box-shadow: 3px 3px 40px 0px rgba(0, 0, 0, 0.3);
+    outline: 1px dotted #fff;
+} 
+
+.admin_column_outline .column-content .site-toolbar{ 
+    display: flex;
+    justify-content: space-between;
+    position: relative; 
+    z-index: 999 
+}
+
+/***********************************************
+/* END DO NOT REMOVE                           *
+***********************************************/
+/***********************************************
+/* SITE ADMIN SITE THEME STYLES                *
+/* ADD YOUR OWN STYLE FOR ADMIN SITE FEATURE   *
+************************************************/
+/* It's up to you !                            */

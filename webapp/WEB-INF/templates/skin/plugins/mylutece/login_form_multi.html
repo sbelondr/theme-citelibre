@@ -1,0 +1,81 @@
+<@cContainer>
+	<@cRow>
+		<@cCol>
+			<@cTitle>Log In</@cTitle>
+			<@cText>You don't have a password? Then please  <a class="white" href="${url_new_account}">#i18n{mylutece.xpage.login_form.labelButtonCreateAccount}</a></@cText> 
+			<!-- Sign Up Form -->
+				<@cSection class="form-container">
+					<@cForm action='${url_dologin}' >
+					<#if list_authentications?exists>
+						<@cInput type='hidden' name='page' value='mylutece' />
+						<@cInput type='hidden' name='action' value='dologin' />
+						<@cInput type='hidden' name='token' value=token />
+						<#if error_message!=""><@cAlert class='warning' title=error_message dismissible=false>${error_detail}</@cAlert>	</#if>
+						<#-- first display delegated authentications [oauth etc...]-->
+						<#list list_authentications as authentication>
+							<#if authentication.delegatedAuthentication>
+							<@cField>
+								<a href="${url_dologin}?page=mylutece&action=dologin&auth_provider=${authentication.name}">
+									${authentication.authServiceName}
+								</a>
+							</@cField>
+							</#if>
+						</#list>
+						<#-- display internal authentications [such as database]-->
+						<#assign bHasInternalAuth = false />
+						<#if list_authentications?size != 1>
+							<#list list_authentications as authentication>
+								<#if !authentication.externalAuthentication && !authentication.delegatedAuthentication>
+									<#if !bHasInternalAuth>
+										<#assign bHasInternalAuth = true />
+									</#if>
+									<@cField>
+									<#if auth_provider?has_content && auth_provider = authentication.name>
+									<div class="radio">
+										<label>
+											<input type="radio" name="auth_provider" value="${authentication.name}" checked="checked"/>${authentication.authServiceName}
+										</label>
+									</div>
+									<#else>
+									<div class="radio">
+										<label>
+											<input type="radio" name="auth_provider" value="${authentication.name}" />${authentication.authServiceName}
+										</label>
+									</div>
+									</#if>
+									</@cField>
+								</#if>
+							</#list>
+						<#else>
+							<#list list_authentications as authentication>
+								<#if !authentication.externalAuthentication && !authentication.delegatedAuthentication>
+									<#if !bHasInternalAuth>
+										<#assign bHasInternalAuth = true />
+									</#if>
+									<@cInput type='hidden' name='auth_provider' value='${authentication.name}' />
+								</#if>
+							</#list>
+						</#if>	
+						<#if bHasInternalAuth>
+							<@cField>
+								<@cInput name='username' maxlength=100 />
+								<@cLabel for='username'>#i18n{mylutece.xpage.login_form.labelAccessCode}</@cLabel>
+							</@cField>
+							<@cField>
+								<@cInput name='password' value='' maxlength=100 />
+								<@cLabel for='password'>#i18n{mylutece.xpage.login_form.labelPassword}</@cLabel>
+							</@cField>
+							<#if is_active_captcha>${captcha}</#if>
+							<@cField class='row justify-content-center'>
+								<@cBtn label='#i18n{mylutece.xpage.login_form.labelButton}' class='form-control-submit-button' params='name="Submit"'>
+									<@cIcon label='' class='lock' />  
+								</@cBtn>
+							</@cField>
+						</#if>
+					</#if>	
+				</@cForm>
+			</@cSection> 
+		</@cCol> 
+	</@cRow>
+</@cContainer> 
+<script>$('.ex-header').hide()</script>

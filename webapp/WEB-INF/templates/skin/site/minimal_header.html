@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>${page_title}</title>
+<base href="${base_url}">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<meta http-equiv="Content-Language" content="fr">
+<!-- Set the viewport width to device width for mobile -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Styles -->
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap&subset=latin-ext" rel="stylesheet">
+<link href="${theme.pathCss}/bootstrap.min.css" rel="stylesheet">
+<link href="${theme.pathCss}/fontawesome-all.min.css" rel="stylesheet">
+<link href="${theme.pathCss}/tabler-icons.min.css" rel="stylesheet">
+<link href="${theme.pathCss}/swiper.min.css" rel="stylesheet">
+<link href="${theme.pathCss}/theme-citelibre-dark-mode.css" rel="stylesheet">
+<link href="${theme.pathCss}/theme-citelibre-tac.css" crossorigin="anonymous" rel="stylesheet">
+<link href="${theme.pathCss}/theme_citelibre_styles.css" rel="stylesheet">
+<!-- Custom site styles include -->
+<link href="${theme.pathCss}/page_template_styles.css" crossorigin="anonymous" rel="stylesheet">
+<!-- Favicon  -->
+<link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192" href="android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon.png">
+<link rel="manifest" href="manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+<script src="js/jquery.min.js"></script> <!-- jQuery for Bootstrap's JavaScript plugins -->
+</head>
+<body data-spy="scroll" data-bs-target=".fixed-top">
+<!-- Main Menu -->
+<@cMainNav title=page_title >
+	<li class="nav-item"><a class="nav-link" title="LUTECE [#i18n{portal.site.portal_footer.newWindow}]" target="_blank" href="https://lutece.paris.fr/fr/">LUTECE</a></li>
+	<li class="nav-item">
+		<a class="nav-link" href="jsp/site/Portal.jsp?page=contact&view=viewContactPage&id_contact_list=1&message_object=Ask%20for%20a%20demo&contact=1" title="[#i18n{portal.site.portal_footer.newWindow}] #i18n{portal.site.page_menu_tools.xpage.contact}">#i18n{portal.site.page_menu_tools.xpage.contact}</a>
+	</li>
+	<li class="nav-item"><a href="https://lutece.paris.fr/fr/"><img class="img-fluid" width="18" src="images/fr.svg" alt="fr" title="French website"><span class="sr-only"> French</span></a></li>
+	<li class="nav-item ms-2"><a href="https://lutece.paris.fr/en/"><img class="img-fluid" width="18" src="images/uk.svg" alt="en" title="English website"><span class="sr-only"> English</span></a></li>
+</@cMainNav >
+<!-- end Main Menu -->
+<main id="main" role="main" class="vh-100">
