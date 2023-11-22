@@ -104,13 +104,8 @@
 <script src='js/plugins/appointment/locale-all.js' ></script>
 <script src="js/plugins/appointment/bootstrap-datepicker.js" ></script>
 <script src="js/locales/bootstrap-datepicker.fr.js" charset="utf-8"></script>
-<script src="js/util/shepherd/lutece-shepherd.js"></script>
 <script>
 $( function(){ 
 	$('.ex-2-header').removeClass()
-	const tour = initTour("lutece");
-	initStep( tour, 'Modifier les champs saisis !', 'Cliquer sur modifier pour  les champs saisis à l\'étape précédente', { element: "#backInput", on: "bottom"}, [{action() { document.getElementById('backInput').click() ;}, text: 'Précédent'}, {action() {const el=document.querySelector( this.currentStep.options.attachTo.element ); return this.next();}, text: 'Suivant'}]);
-	initStep( tour, 'Confirmer', 'Valider pour afficher la confirmation', { element: "#validate", on: "bottom"}, [{action() { const el=document.querySelector( this.currentStep.options.attachTo.element ); return this.back();}, text: 'Précédent'}, {action() { document.getElementById('validate').click();}, text: 'Confirmer'}]);
-	startTour( tour );
 });
 </script>

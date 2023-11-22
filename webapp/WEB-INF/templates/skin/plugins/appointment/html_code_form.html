@@ -262,7 +262,6 @@ $( function(){
 	$('#messageview').html( $('#infomessage').html() );
 });
 </script>
-<script src="js/util/shepherd/lutece-shepherd.js"></script>
 <script>
 $(function(){ 
 	let currentEventLabel=' à ';
@@ -273,13 +272,5 @@ $(function(){
 			currentEventLabel += e.innerHTML.toLocaleLowerCase(); 
 		}
 	});
-	const tour = initTour("lutece xxbox");
-	initStep( tour, 'Votre Nom', 'Veuillez saisir votre nom, ou faites suivant', {element: "#lastname", on: "bottom"}, [{action() {const el=document.querySelector( this.currentStep.options.attachTo.element ); el.classList.add('notEmpty'); if( el.value == '' ) { el.value = 'USER'}; return this.next();}, text: 'Suivant'}],'name',  true);
-	initStep( tour, 'Votre Prénom', 'Veuillez saisir votre prénom, ou faites suivant', {element: "#firstname", on: "bottom"}, [{action() {return this.back();}, text: 'Précédent'}, {action() {const el=document.querySelector( this.currentStep.options.attachTo.element ); el.classList.add('notEmpty'); if( el.value == '' ) { el.value = 'User'}; return this.next();}, text: 'Suivant'}],'surname',  true);
-	initStep( tour, 'Votre Email', 'Veuillez saisir votre email, ou faites suivant', {element: "#email", on: "bottom"}, [{action() {return this.back();}, text: 'Précédent'}, {action() {const el=document.querySelector( this.currentStep.options.attachTo.element ); el.classList.add('notEmpty'); if( el.value == '' ) { el.value = 'user.user@mail.com'}; return this.next();}, text: 'Suivant'}],'mail',  true);
-	initStep( tour, 'Vérification de l\'email', 'Veuillez saisir votre email, ou faites suivant', {element: "#emailConfirm", on: "bottom"}, [{action() {return this.back();}, text: 'Précédent'}, {action() {const el=document.querySelector( this.currentStep.options.attachTo.element ); el.classList.add('notEmpty'); if( el.value == '' ) { el.value = 'user.user@mail.com'}; return this.next();}, text: 'Suivant'}],'confirmmail',  true);
-	//initStep( tour, 'Places réservables', 'Le nombre de places pouvant etre réservées', {element: "#nbBookedSeats", on: "bottom"}, [{action() {return this.back();}, text: 'Précédent'}, {action() {const el=document.querySelector( this.currentStep.options.attachTo.element ); el.classList.add('notEmpty'); return this.next();}, text: 'Suivant'}],'nb',  true);
-	initStep( tour, 'Rendez-vous', 'Ajouter le rendez vous ' + currentEventLabel , {element: ".btn-label", on: "bottom"}, [{action() { return this.back();}, text: 'Précédent'}, {action() {  document.getElementById('save').click() ;}, text: 'Ajouter ce rendez-vous !'}],'addrdv' );
-	startTour( tour );
 });
 </script>
