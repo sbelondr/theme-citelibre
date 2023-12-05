@@ -223,7 +223,7 @@ Private : Only for cMainFooter's macros
         <div class="row">
             <div class="col-md-4">
                 <div class="footer-col first">
-                    <h4>#i18n{'themecitelibre.site_property.footer.about.title'}</h4>
+                    <h4>${dskey('themecitelibre.site_property.footer.about.title')}</h4>
                     <p class="p-small">${dskey('themecitelibre.site_property.footer.about')}</p>
                 </div>
             </div> <!-- end of col -->
@@ -235,21 +235,21 @@ Private : Only for cMainFooter's macros
                             <#nested>
                         </#if>
                         <li>
-                            <i class="fas fa-lightbulb fa-fw"></i><a class="white p-small" href="https://lutece.paris.fr/support/wiki/home.html">Wiki</a>
+                            <i class="fas fa-lightbulb fa-fw"></i><a class="white p-small ms-2" href="https://lutece.paris.fr/support/wiki/home.html">Wiki</a>
                         </li>
                         <li>
                             <i class="fas fa-sitemap fa-fw"></i> 
-                            <a class="white p-small" href="jsp/site/Portal.jsp?page=map" >#i18n{portal.site.site_map.pageTitle}</a>
+                            <a class="white p-small ms-2" href="jsp/site/Portal.jsp?page=map" >#i18n{portal.site.site_map.pageTitle}</a>
                         </li>
                         <li>
                             <i class="fas fa-star fa-fw"></i>     
-                            <a class="white p-small" href="jsp/site/PopupCredits.jsp" title="[#i18n{portal.site.portal_footer.newWindow}] #i18n{portal.site.portal_footer.labelCredits}" target="info_comp">
+                            <a class="white p-small ms-2" href="jsp/site/PopupCredits.jsp" title="[#i18n{portal.site.portal_footer.newWindow}] #i18n{portal.site.portal_footer.labelCredits}" target="info_comp">
                             #i18n{portal.site.portal_footer.labelCredits}
                             </a>
                         </li>
                         <li>
                             <i class="fas fa-info-circle fa-fw"></i>     
-                            <a class="white p-small" href="jsp/site/PopupLegalInfo.jsp" title="[#i18n{portal.site.portal_footer.newWindow}] #i18n{portal.site.portal_footer.labelCredits}" target="info_comp">
+                            <a class="white p-small ms-2" href="jsp/site/PopupLegalInfo.jsp" title="[#i18n{portal.site.portal_footer.newWindow}] #i18n{portal.site.portal_footer.labelCredits}" target="info_comp">
                                 #i18n{portal.site.portal_footer.labelInfo}
                             </a>
                         </li>
@@ -266,7 +266,7 @@ Private : Only for cMainFooter's macros
                         <ul class="list-unstyled li-space-lg">
                             <li>
                                 <i class="far fa-address-book"></i> 
-                                <a class="white p-small" href="jsp/site/Portal.jsp?page=contact&view=viewContactPage&id_contact_list=1&message_object=Ask%20for%20a%20demo&contact=1" title="[#i18n{portal.site.portal_footer.newWindow}] #i18n{portal.site.page_menu_tools.xpage.contact}" target="_blank" accesskey="7"> #i18n{portal.site.page_menu_tools.xpage.contact}</a>
+                                <a class="white p-small ms-2" href="jsp/site/Portal.jsp?page=contact&view=viewContactPage&id_contact_list=1&message_object=Ask%20for%20a%20demo&contact=1" title="[#i18n{portal.site.portal_footer.newWindow}] #i18n{portal.site.page_menu_tools.xpage.contact}" target="_blank" accesskey="7"> #i18n{portal.site.page_menu_tools.xpage.contact}</a>
                             </li>
                         </ul>
                     </div> 
@@ -274,9 +274,9 @@ Private : Only for cMainFooter's macros
                 <div class="footer-col last">
                     <h4>Cookies</h4>
                     <ul class="list-unstyled">
-                        <li class="text-white p-small">
-                            <i class="fas fa-cookie"></i> 
-                            <span id="tarteaucitronManager">${dskey('themecitelibre.site_property.footer.cookieLabel')}</span> 
+                        <li class="text-white p-small"> 
+                            <svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" fill="#fff" viewBox="0 0 512 512"><path d="M510.4 254.8l-12.1-76.3a132.5 132.5 0 0 0 -37.2-73l-54.8-54.8c-19.7-19.7-45.2-32.7-72.7-37.1l-76.7-12.2c-27.5-4.4-55.7 .1-80.5 12.8L107.3 49.6a132.3 132.3 0 0 0 -57.8 57.8l-35.1 68.9a132.6 132.6 0 0 0 -12.8 80.9l12.1 76.3a132.5 132.5 0 0 0 37.2 73l54.8 54.8a132.1 132.1 0 0 0 72.7 37.1l76.7 12.1c27.5 4.4 55.7-.1 80.5-12.8l69.1-35.2a132.3 132.3 0 0 0 57.8-57.8l35.1-68.9c12.7-25 17.2-53.3 12.8-81zM176 368c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32zm32-160c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32zm160 128c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32z"/></svg>
+                            <span id="tarteaucitronManager" class="ms-1 text-decoration-underline">${dskey('themecitelibre.site_property.footer.cookieLabel')}</span> 
                         </li>
                     </ul>
                 </div> 

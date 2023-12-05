@@ -1,11 +1,12 @@
 DELETE FROM `core_datastore` WHERE `entity_key` LIKE '%themecitelibre.site_property%';
 INSERT INTO `core_datastore` (`entity_key`, `entity_value`) VALUES ('themecitelibre.site_property.footer.cookieLink', '#cookiecitelibrepack');
 INSERT INTO `core_datastore` (`entity_key`, `entity_value`) VALUES ('themecitelibre.site_property.footer.cookieLabel', 'Cookies management');
+INSERT INTO `core_datastore` (`entity_key`, `entity_value`) VALUES ('themecitelibre.site_property.footer.about.title', 'A propos');
 INSERT INTO `core_datastore` (`entity_key`, `entity_value`) VALUES ('themecitelibre.site_property.footer.about', 'CiteLibre is made for cities, by cities, upon open source principals. <br> <a class="btn btn-link ps-0" href="//:lutece.paris.fr" title="[#i18n{portal.site.portal_footer.newWindow}] LUTECE website" target="_blank><img src="images/poweredby.png" alt="Powered by LUTECE"></a> ');
 INSERT INTO `core_datastore` (`entity_key`, `entity_value`) VALUES ('themecitelibre.site_property.bannerMessage.Type', 'info');
 INSERT INTO `core_datastore` (`entity_key`, `entity_value`) VALUES ('themecitelibre.site_property.bannerMessage.Title', '');
 INSERT INTO `core_datastore` (`entity_key`, `entity_value`) VALUES ('themecitelibre.site_property.bannerMessage.Position', 'bottom-right');
 INSERT INTO `core_datastore` (`entity_key`, `entity_value`) VALUES ('themecitelibre.site_property.bannerMessage.htmlblock', '');
 INSERT INTO `core_datastore` (`entity_key`, `entity_value`) VALUES ('themecitelibre.site_property.bannerMessage.CloseButton.checkbox', '1');
-INSERT INTO `core_datastore` (`entity_key`, `entity_value`) VALUES ('themecitelibre.site_property.footer.links', '[{"Our wiki","https://lutece.paris.fr/support/wiki/home.html"},{"Read our Terms & Conditions","https://lutece.paris.fr/support/wiki/home.html"},]');
+INSERT INTO `core_datastore` (`entity_key`, `entity_value`) VALUES ('themecitelibre.site_property.footer.links.title', 'Liens importants');
 INSERT INTO `core_datastore` (`entity_key`, `entity_value`) VALUES ('themecitelibre.site_property.robotIndex.checkbox', '1');
