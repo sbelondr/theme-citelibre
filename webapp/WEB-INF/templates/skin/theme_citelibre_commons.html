@@ -229,13 +229,13 @@ Private : Only for cMainFooter's macros
             </div> <!-- end of col -->
             <div class="col-md-4">
                 <div class="footer-col middle">
-                    <h4>${dskey('themecitelibre.site_property.footer.importantLinks')}</h4>
+                    <h4>${dskey('themecitelibre.site_property.footer.links.title')}</h4>
                     <ul class="list-unstyled li-space-lg">
                         <#if nested_pos='before'>
                             <#nested>
                         </#if>
                         <li>
-                            <i class="fas fa-lightbulb fa-fw"></i><a class="white p-small ms-2" href="https://lutece.paris.fr/support/wiki/home.html">Wiki</a>
+                            <i class="fas fa-lightbulb fa-fw"></i><a class="white p-small ms-2" href="https://lutece.paris.fr/support/wiki/home.html" target="_blank" title="[#i18n{portal.site.portal_footer.newWindow}] Wiki Lutece">Wiki</a>
                         </li>
                         <li>
                             <i class="fas fa-sitemap fa-fw"></i> 
@@ -243,13 +243,13 @@ Private : Only for cMainFooter's macros
                         </li>
                         <li>
                             <i class="fas fa-star fa-fw"></i>     
-                            <a class="white p-small ms-2" href="jsp/site/PopupCredits.jsp" title="[#i18n{portal.site.portal_footer.newWindow}] #i18n{portal.site.portal_footer.labelCredits}" target="info_comp">
+                            <a class="white p-small ms-2" href="jsp/site/PopupCredits.jsp" title="#i18n{portal.site.portal_footer.labelCredits}">
                             #i18n{portal.site.portal_footer.labelCredits}
                             </a>
                         </li>
                         <li>
                             <i class="fas fa-info-circle fa-fw"></i>     
-                            <a class="white p-small ms-2" href="jsp/site/PopupLegalInfo.jsp" title="[#i18n{portal.site.portal_footer.newWindow}] #i18n{portal.site.portal_footer.labelCredits}" target="info_comp">
+                            <a class="white p-small ms-2" href="jsp/site/PopupLegalInfo.jsp" title="#i18n{portal.site.portal_footer.labelInfo}">
                                 #i18n{portal.site.portal_footer.labelInfo}
                             </a>
                         </li>
@@ -262,11 +262,11 @@ Private : Only for cMainFooter's macros
             <div class="col-md-4">
                 <#if isContactInstalled?? && isContactInstalled>
                     <div class="footer-col last">
-                        <h4>#i18n{portal.site.page_menu_tools.xpage.contact}</h4>
+                        <h4>CONTACT</h4>
                         <ul class="list-unstyled li-space-lg">
                             <li>
                                 <i class="far fa-address-book"></i> 
-                                <a class="white p-small ms-2" href="jsp/site/Portal.jsp?page=contact&view=viewContactPage&id_contact_list=1&message_object=Ask%20for%20a%20demo&contact=1" title="[#i18n{portal.site.portal_footer.newWindow}] #i18n{portal.site.page_menu_tools.xpage.contact}" target="_blank" accesskey="7"> #i18n{portal.site.page_menu_tools.xpage.contact}</a>
+                                <a class="white p-small ms-2" href="jsp/site/Portal.jsp?page=contact&view=viewContactPage&id_contact_list=1&message_object=Ask%20for%20a%20demo&contact=1" title="Contact" > Contact</a>
                             </li>
                         </ul>
                     </div> 
@@ -989,8 +989,8 @@ $( function() {
 <#-- class                                   -->
 <#-- id                                      -->
 <#-- params                                  -->
-<#macro cFormHelp id label class='' params=''>
-<small id="help_${id!}" class="form-text text-muted<#if class!=''> ${class!}</#if>"<#if params!=''> ${params!}</#if>>${label!}</small>
+<#macro cFormHelp id label class='text-muted' params=''>
+<small id="help_${id!}" class="form-text <#if class!=''> ${class!}</#if>"<#if params!=''> ${params!}</#if>>${label!}</small>
 </#macro>
 <#-- cFormError                              -->
 <#-- --------------------------------------  -->

@@ -2,59 +2,60 @@
 	<@cRow>
 		<@cCol>
 			<@cTitle>#i18n{contact.page_contact.pageTitle}</@cTitle>
-                <@cSection class='form-container'>
+                <@cSection class='form-container mt-3'>
                     <@formHelp class='visually-hidden'>* #i18n{contact.page_contact.mandatoryFields}</@formHelp>
                     <@cForm action='jsp/site/Portal.jsp'>
                     <@input type="hidden" name="page" value="contact" />
                     <@input type="hidden" name="action" value="actionSendMessage" />
                     <@input type="hidden" name="portal_url" value="${portal_url}" />
                     <@input type="hidden" name="id_contact_list" value="${id_contact_list}" />
-                    <@cField>
-                        <@cInput name='visitor_email' value='${visitor_email!}' required=true />
-                        <@cLabel for='visitor_email' required=true>#i18n{contact.page_contact.visitorEmail}</@cLabel>
-                    </@cField>
-                    <@cField>
-                        <#assign visitorLastName><#if mylutece_user??>${mylutece_user.getUserInfo( 'user.name.family' )}<#else>${visitor_last_name}</#if></#assign>
-                        <@cInput name='visitor_last_name' value='${visitorLastName!}' required=true />
-                        <@cLabel for='visitor_last_name' required=true>#i18n{contact.page_contact.visitorLastName}</@cLabel>
-                    </@cField>
-                    <@cField>
-                        <#assign visitorFirstName><#if mylutece_user??>${mylutece_user.getUserInfo( 'user.name.given' )}<#else>${visitor_first_name}</#if></#assign>
-                        <@cInput name='visitor_first_name' value='${visitorFirstName!}' required=true />
-                        <@cLabel for='visitor_first_name' required=true>#i18n{contact.page_contact.visitorFirstName}</@cLabel>
-                    </@cField>
-                    <@cField>
-                        <@cInput name='visitor_address' value='${visitor_address!}' />
-                        <@cLabel for='visitor_address' required=true>#i18n{contact.page_contact.visitorAddress}</@cLabel>
-                    </@cField>
-                    <@cField>
-                        <#assign selectClass>form-control-select<#if default_contact !=''> notEmpty</#if></#assign>
-                        <@cSelect class=selectClass name='contact' required=true >
-                        <#list contacts_list?sort_by("name") as contact>
-                            <#assign isSelected><#if default_contact=contact.code>true<#else>false</#if></#assign>
-                            <@cOption label=contact.name value=contact.code selected=isSelected?boolean />
-                        </#list>
-                        </@cSelect>
-                        <@cLabel for='visitor_address'>#i18n{contact.page_contact.comboLabel}</@cLabel>
-                    </@cField>
-                    <@cField>
-                        <@cInput name='message_object' value='${message_object!}'  required=true />
-                        <@cLabel for='message_object' required=true>#i18n{contact.page_contact.messageObject}</@cLabel>
-                    </@cField>
-                    <@cField>
-                        <@cTextArea name='message' helpMsg='#i18n{contact.page_contact.characterMax}' required=true >${message!}</@cTextArea>
-                        <@cLabel for='message'>#i18n{contact.page_contact.message}</@cLabel>
-                    </@cField>
-                    <#if is_active_captcha><@cField>${captcha}</@cField></#if>
-                    <#if is_tos_required>
-                        <@cField>
-                            <@cCheckbox name='accept_tos' label='${tos_message}' checked=accept_tos value='1' required=true />
-                        </@cField>
-                    </#if>
-                    <#if alert_msg?exists>
-                        <div class="alert alert-error">${alert_msg}</div>
-                    </#if>
-                    
+					<@cRow>
+						<@cCol cols='12 col-md-6'>
+							<@cField>
+								<@cInput name='visitor_email' value='${visitor_email!}' required=true />
+								<@cLabel for='visitor_email' required=true>#i18n{contact.page_contact.visitorEmail}</@cLabel>
+							</@cField>
+							<@cField>
+								<#assign visitorLastName><#if mylutece_user??>${mylutece_user.getUserInfo( 'user.name.family' )}<#else>${visitor_last_name}</#if></#assign>
+								<@cInput name='visitor_last_name' value='${visitorLastName!}' required=true />
+								<@cLabel for='visitor_last_name' required=true>#i18n{contact.page_contact.visitorLastName}</@cLabel>
+							</@cField>
+							<@cField>
+								<#assign visitorFirstName><#if mylutece_user??>${mylutece_user.getUserInfo( 'user.name.given' )}<#else>${visitor_first_name}</#if></#assign>
+								<@cInput name='visitor_first_name' value='${visitorFirstName!}' required=true />
+								<@cLabel for='visitor_first_name' required=true>#i18n{contact.page_contact.visitorFirstName}</@cLabel>
+							</@cField>
+							<@cField>
+								<@cInput name='visitor_address' value='${visitor_address!}' />
+								<@cLabel for='visitor_address' required=true>#i18n{contact.page_contact.visitorAddress}</@cLabel>
+							</@cField>
+							<@cField>
+								<#assign selectClass>form-control-select<#if default_contact !=''> notEmpty</#if></#assign>
+								<@cSelect class=selectClass name='contact' required=true >
+								<#list contacts_list?sort_by("name") as contact>
+									<#assign isSelected><#if default_contact=contact.code>true<#else>false</#if></#assign>
+									<@cOption label=contact.name value=contact.code selected=isSelected?boolean />
+								</#list>
+								</@cSelect>
+								<@cLabel for='visitor_address'>#i18n{contact.page_contact.comboLabel}</@cLabel>
+							</@cField>
+							<@cField>
+								<@cInput name='message_object' value='${message_object!}'  required=true />
+								<@cLabel for='message_object' required=true>#i18n{contact.page_contact.messageObject}</@cLabel>
+							</@cField>
+							<@cField>
+								<@cTextArea name='message' helpMsg='#i18n{contact.page_contact.characterMax}' required=true >${message!}</@cTextArea>
+								<@cLabel for='message'>#i18n{contact.page_contact.message}</@cLabel>
+							</@cField>
+							<#if is_active_captcha><@cField>${captcha}</@cField></#if>
+							<#if is_tos_required>
+								<@cField>
+									<@cCheckbox name='accept_tos' label='${tos_message}' checked=accept_tos value='1' required=true />
+								</@cField>
+							</#if>
+						</@cCol>
+                    </@cRow>
+                    <#if alert_msg?exists><div class="alert alert-error">${alert_msg}</div></#if>
                     <@cField>
                          <@cBtn label='#i18n{contact.page_contact.buttonSend}' class='btn-action py-2' >
                             <@cIcon label='#i18n{contact.page_contact.buttonSend}' class='envelope me-1' /> 
@@ -63,7 +64,7 @@
                             <@cIcon label='#i18n{contact.page_contact.buttonReset}' class='redo me-1' /> 
                         </@cBtn>
                     </@cField>
-                    <@formHelp>* #i18n{contact.page_contact.mandatoryFields}</@formHelp>
+                    <@cFormHelp id='required' label='* #i18n{contact.page_contact.mandatoryFields}' class='text-white' />
                 </@cForm>
             </@cSection> 
         </@cCol> 

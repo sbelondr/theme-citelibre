@@ -605,7 +605,7 @@ legend{
 	display: block; /* needed for proper display of the label in Firefox, IE, Edge */
 	width: 100%;
 	padding-top: 1.25rem;
-	padding-bottom: .625rem;
+	padding-bottom: 0;
 	padding-left: 1.25rem;
 	border: 1px solid var(--border-color);
 	border-radius: 0.25rem;
