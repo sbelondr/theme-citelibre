@@ -199,7 +199,6 @@ a.white {
 	color: var( --main-danger-color );
 }
 
-
 .btn-action{
 	display: inline-block;
 	padding: 2rem 1rem 2rem 1rem;
@@ -215,6 +214,23 @@ a.white {
 .btn-action:hover {
 	background-color: var(--white-color);
 	color: var( --alt-info-second-color );
+	text-decoration: none;
+}
+.btn-action-warning{
+	display: inline-block;
+	padding: 2rem 1rem 2rem 1rem;
+	border: 0.125rem solid var(--alt-warning-dark-color );
+	border-radius: 2rem;
+	background-color: var(--alt-warning-dark-color );
+	color: var(--white-color);
+	font: 700 1rem/0 "Open Sans", sans-serif;
+	text-decoration: none;
+	transition: all 0.2s;
+}
+
+.btn-action-warning:hover {
+	background-color: var(--white-color);
+	color: var(--alt-warning-dark-color ));
 	text-decoration: none;
 }
 
@@ -1123,6 +1139,52 @@ input[type='checkbox'] {
 /* Add border to non-shadowed cards */
 .card.no-shadow{
 	border: 1px solid var( --gray-color );
+}
+
+/* Card Circle */
+.card-circle{
+	text-align:center;
+	background: var( --main-color );    
+	border: 10px solid transparent;
+	color:#fff;
+	padding:0;
+	border-radius:50%;
+	width: 250px;
+	height: 250px;
+	margin: 0 auto;
+	box-shadow: 1px 2px 20px 8px rgba(241, 235, 235, 0.12);
+}
+
+.card-circle .card-title{
+	font-weight: 600;
+	font-size: 2rem;
+}
+
+.card-circle .card-text{
+	font-weight:400;
+}
+
+.card-circle .card-icon i{
+	font-size: 3rem;
+	display: block; 
+	margin-top: -30px;
+}
+
+.card-circle .btn,.card-circle .card-icon i,.card-circle{
+	transition: all ease-in-out 0.2s;
+}
+
+.card-circle .btn:hover{
+	transform: scale(1.1);
+}
+
+.card-circle:hover{
+	border: 6px solid #fff;
+}
+
+.card-circle:hover i {
+	text-shadow: 0px -1px 10px #fff;
+	transform: scale(1.2) rotate(20deg);
 }
 
 /************************/
@@ -2954,7 +3016,7 @@ a[name^="last_"]:before {
 		right: -0.75rem;
 	}
 	/* end of testimonials */
-	/* Newsletter */
+	/* Newsletter 		*/
 	.form .text-container {
 		width: 55rem;
 		margin-right: auto;
