@@ -302,23 +302,3 @@
 		});
 	});      
 </script>
-<script src="js/util/shepherd/lutece-shepherd.js"></script>
-<script>
-$(function(){
-	const tour = initTour("lutece");
-	let currentEvent=null, currentEventLink='', currentEventLabel='';
-	$( '.fc-event-container .fc-day-grid-event.fc-event' ).each( function( i, e ){
-		const el = e.querySelector( '.fc-title' );
-		if( el.innerText.trim() === '' ){
-			currentEvent = e;
-			currentEventLabel = e.getAttribute( 'title');
-			currentEventLink = e.getAttribute( 'href' ); 
-			return false;
-		}
-	});
-	initStep( tour, 'Semaine précédente', 'En cliquant ici, vous vous dirigerez vers la semaine précédente', { element: ".fc-prev-button", on: "bottom"}, {action() {return this.back();}, text: 'Précédent' }, {action() {return this.next();}, text: 'Suivant'},'prevweek');
-	initStep( tour, 'Semaine suivante', 'En cliquant ici, vous vous dirigerez vers la semaine suivante', { element: ".fc-next-button", on: "bottom"}, {action() {return this.back();}, text: 'Précédent' }, {action() {return this.next();}, text: 'Suivant'},'nextweek');
-	initStep( tour, currentEventLabel, 'Vous etes sur un créneau horaire', { element: currentEvent, on: "bottom" }, [{action() {return this.back();}, text: 'Précédent' }, {action() { return window.location.replace( currentEventlink );}, text: 'Suivant'},'first');
-	startTour( tour );
-});
-</script>
