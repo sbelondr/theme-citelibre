@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="${user_context_language}">
 <head>
 <base href="${base_url}">
 <title>${favourite} - ${page_name}</title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta charset="${encoding}">
 <meta http-equiv="Content-Type" content="text/html;charset=${encoding}">
-<meta http-equiv="Content-Language" content="fr">
+<meta http-equiv="Content-Language" content="${user_context_language}">
 <meta name="author" content="${meta_author}">
 <meta name="copyright" content="${meta_copyright}">
 <meta name="keywords" content="${meta_keywords}">
@@ -67,34 +67,34 @@ ${plugins_css_links}
 <script src="js/jquery.min.js"></script> <!-- jQuery for Bootstrap's JavaScript plugins -->
 </head>
 <body data-spy="scroll" data-bs-target=".fixed-top">
-	<!-- Main Menu -->
-    <@cMainNav />
-	<!-- end Main Menu -->
-	<main id="main" role="main">
-	    <!-- Page path -->
-	<#if page_id &gt; 1>
-		<!-- breadcrumb -->
-		${page_path}
-		<!-- breadcrumb -->
-	</#if>
-	${page_content}
-	</main>
-    <!-- Footer -->
-	${page_footer}
-    <!-- end of footer -->
-    <!-- Scripts -->
-    <script src="js/popper.min.js"></script> <!-- Popper tooltip library for Bootstrap -->
-    <script src="js/bootstrap.bundle.min.js"></script> <!-- Bootstrap framework -->
-    <script src="js/jquery.easing.min.js"></script> <!-- jQuery Easing for smooth scrolling between anchors -->
-    <script src="js/swiper.min.js"></script> <!-- Swiper for image and text sliders -->
-	<script src="js/dark-mode-switch.min.js"></script>
-    <script src="js/scripts.js"></script> <!-- Custom scripts -->
-	<script src="js/jquery/plugins/validation/jquery.validate.min.js"></script>
-	<script src="js/jquery/plugins/toastr/toastr.min.js"></script>
-	<!-- Theme - Base JS init  -->
-	<script type="text/javascript" src="js/init_site.js"></script>
-	<!-- Browser detection and warning old browser -->
-	<script src="js/es5.js"></script>
+<!-- Main Menu -->
+<@cMainNav />
+<!-- end Main Menu -->
+<main id="main" role="main">
+	<!-- Page path -->
+<#if page_id &gt; 1>
+	<!-- breadcrumb -->
+	${page_path}
+	<!-- breadcrumb -->
+</#if>
+${page_content}
+</main>
+<!-- Footer -->
+${page_footer}
+<!-- end of footer -->
+<!-- Scripts -->
+<script src="js/popper.min.js"></script> <!-- Popper tooltip library for Bootstrap -->
+<script src="js/bootstrap.bundle.min.js"></script> <!-- Bootstrap framework -->
+<script src="js/jquery.easing.min.js"></script> <!-- jQuery Easing for smooth scrolling between anchors -->
+<script src="js/swiper.min.js"></script> <!-- Swiper for image and text sliders -->
+<script src="js/dark-mode-switch.min.js"></script>
+<script src="js/scripts.js"></script> <!-- Custom scripts -->
+<script src="js/jquery/plugins/validation/jquery.validate.min.js"></script>
+<script src="js/jquery/plugins/toastr/toastr.min.js"></script>
+<!-- Theme - Base JS init  -->
+<script type="text/javascript" src="js/init_site.js"></script>
+<!-- Browser detection and warning old browser -->
+<script src="js/es5.js"></script>
 <script>
 window.addEventListener( "load", function() {
 	const browser = bowser.getParser(window.navigator.userAgent);
