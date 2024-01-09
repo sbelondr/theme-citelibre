@@ -243,14 +243,20 @@ Private : Only for cMainFooter's macros
                         </li>
                         <li>
                             <i class="fas fa-star fa-fw"></i>     
-                            <a class="white p-small ms-2" href="jsp/site/PopupCredits.jsp" title="#i18n{portal.site.portal_footer.labelCredits}">
+                            <a class="white p-small ms-2" href="jsp/site/PopupCredits.jsp" title="#i18n{portal.site.portal_footer.labelCredits}" data-bs-info="#i18n{portal.site.portal_footer.labelCredits}"  data-bs-toggle="modal" data-bs-target="#citelibreModal" >
                             #i18n{portal.site.portal_footer.labelCredits}
                             </a>
                         </li>
                         <li>
                             <i class="fas fa-info-circle fa-fw"></i>     
-                            <a class="white p-small ms-2" href="jsp/site/PopupLegalInfo.jsp" title="#i18n{portal.site.portal_footer.labelInfo}">
+                            <a class="white p-small ms-2" href="jsp/site/PopupLegalInfo.jsp" title="#i18n{portal.site.portal_footer.labelInfo}" data-bs-info="#i18n{portal.site.portal_footer.labelInfo}" data-bs-toggle="modal" data-bs-target="#citelibreModal" >
                                 #i18n{portal.site.portal_footer.labelInfo}
+                            </a>
+                        </li>
+                        <li>
+                            <i class="fas fa-universal-access fa-fw"></i>     
+                            <a class="white p-small ms-2" href="jsp/site/Portal.jsp?page=htmlpage&amp;htmlpage_id=1" title="#i18n{themecitelibre.labelAccessibility}">
+                                #i18n{themecitelibre.labelAccessibility}
                             </a>
                         </li>
                         <#if nested_pos='after'>
@@ -284,6 +290,55 @@ Private : Only for cMainFooter's macros
         </div> <!-- end of row -->
     </div> <!-- end of container -->
 </div> <!-- end of footer -->  
+<div class="modal fade" id="citelibreModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false"  aria-labelledby="citelibreModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="citelibreModalLabel">CiteLibre</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="#i18n{portal.util.labelClose}"></button>
+        </div>
+        <div class="modal-body">
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline-sm" data-bs-dismiss="modal">#i18n{portal.util.labelClose}</button>
+        </div>
+      </div>
+    </div>
+</div>
+<script>
+function loadModalContent( url, body, sel ) {
+    const xhr = new XMLHttpRequest();
+	xhr.open('GET', url, true);
+    xhr.onreadystatechange = () => {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+			const response = xhr.responseText;
+			// Convert the response to a temporary div to manipulate as DOM
+			const qDiv = document.createElement('div');
+    		qDiv.innerHTML = response;
+		    // Use querySelector or getElementsByClassName to select elements
+    		body.innerHTML = qDiv.querySelector( sel ).innerHTML;
+		}
+	}
+    xhr.send();
+};
+
+const citelibreModal = document.getElementById('citelibreModal')
+if (citelibreModal) {
+    citelibreModal.addEventListener('show.bs.modal', event => {
+    // Button that triggered the modal
+    const link = event.relatedTarget
+    // Update the modal's title.
+    const title = link.getAttribute('data-bs-info')
+    const modalTitle = citelibreModal.querySelector('.modal-title')
+    modalTitle.textContent = `${title}`
+    // Update the modal's content.
+    const url = link.getAttribute('href')
+    const modalBody = citelibreModal.querySelector('.modal-body')
+    const content = loadModalContent( url, modalBody, '#main .container .row .col' );
+    modalBody.innerHTML = content;
+  })
+}
+</script>
 </#macro> 
 <#-- END NAVIGATION             -->
 <#-- HTML TAGS                  -->

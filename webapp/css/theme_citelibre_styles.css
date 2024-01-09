@@ -82,6 +82,10 @@ body, p {
 	font: 400 1rem/1.625rem "Open Sans", sans-serif;
 }
 
+.modal p, .modal section{
+	color: var(--main-color); 
+}
+
 .p-large {
 	font: 400 1.125rem/1.75rem "Open Sans", sans-serif;
 }
@@ -96,16 +100,28 @@ h1 {
 	letter-spacing: -0.2px;
 }
 
+.modal h1{
+	color: var(--main-color); 
+}
+
 h2 {
 	color: var(--light-color);
 	font: 700 2rem/2.625rem "Open Sans", sans-serif;
 	letter-spacing: -0.2px;
 }
 
+.modal h2{
+	color: var(--main-color); 
+}
+
 h3 {
 	color: var(--light-color);
 	font: 700 1.625rem/2.125rem "Open Sans", sans-serif;
 	letter-spacing: -0.2px;
+}
+
+.modal h3{
+	color: var(--main-color); 
 }
 
 h4 {
