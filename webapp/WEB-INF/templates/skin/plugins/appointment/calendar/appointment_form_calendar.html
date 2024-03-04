@@ -110,9 +110,9 @@
     var minDateOfOpenDay = '${min_date_of_open_day}';
     var maxDateOfOpenDay = '${max_date_of_open_day}';
     var dow = [
-		<#if dow??>								   
+		<#if dow??>
 			<#list dow as day>
-				${day},								
+				${day},
 			</#list>
 		</#if>				
 	];
@@ -226,13 +226,6 @@
 			},
 			events: events,
             eventRender: function(event, element) {
-                $(element).popover({
-                	container: 'body',
-                    placement : 'bottom',
-                    html : true,
-                    trigger : 'hover',
-                    content : '<center>'+event.start.format('ddd DD/MM')+'</center>' + '<center><b>' + event.start.format('HH:mm') + '</b> - <b>' + event.end.format('HH:mm')+'</b></center>'
-                });
                 $(element).contextmenu(function() {
                     return false;
                 });

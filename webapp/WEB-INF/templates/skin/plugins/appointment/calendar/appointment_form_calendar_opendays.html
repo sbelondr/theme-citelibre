@@ -239,13 +239,6 @@ ${mark_nb_places_to_take_form!}
 			},
 			events: events,
             eventRender: function(event, element) {
-                let popover = new bootstrap.Popover( element, {
-                	container: 'body',
-                    placement : 'bottom',
-                    html : true,
-                    trigger : 'hover',
-                    content : '<center>'+event.start.format('ddd DD/MM')+'</center>' + '<center><b>' + event.start.format('HH:mm') + '</b> - <b>' + event.end.format('HH:mm')+'</b></center>'
-                });
                 $(element).contextmenu(function() {
                     return false;
                 });

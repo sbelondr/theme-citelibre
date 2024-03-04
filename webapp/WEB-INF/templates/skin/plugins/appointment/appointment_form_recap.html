@@ -80,7 +80,7 @@
 	<#if form.maxPeoplePerAppointment &gt; 1><input name="nbSeat" value="${appointment.nbBookedSeats}" type="hidden"></#if>
 	<@cRow>
 		<@cCol> 
-			<div class="sr-only">
+			<div class="visually-hidden">
 				<p class="alert alert-info">#i18n{appointment.appointmentApp.recap.title} - <#if form.displayTitleFo && form.title != '' > ${form.title}<#else>#i18n{appointment.appointmentApp.defaultTitle}</#if></p>
 			</div>
 			<p>#i18n{appointment.appointmentApp.validationText}</p>

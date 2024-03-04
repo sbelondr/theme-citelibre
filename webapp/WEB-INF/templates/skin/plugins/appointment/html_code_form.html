@@ -2,6 +2,22 @@
 <link rel="stylesheet" href="css/plugins/appointment/fullcalendar_ow.css" >
 <link rel="stylesheet" href="css/plugins/appointment/bootstrap-datepicker.standalone.css" >
 <link rel="stylesheet" href="css/plugins/appointment/appointment.css" >
+<style>
+.ridonely{
+    display: block;
+    width: 100%;
+    padding-top: .65rem;
+    padding-bottom: .65rem;
+    padding-left: 1.25rem;
+    border: 1px solid var(--border-color);
+    border-radius: .25rem;
+    background-color: #9e9e9ed1;
+    font: 400 0.875rem/1.875rem "Open Sans", sans-serif;
+    transition: all 0.2s;
+    color: white;
+  
+}  
+</style>
 <#assign formTitle><#if form.displayTitleFo && form.title!=''>${form.title}<#else>#i18n{appointment.appointmentApp.defaultTitle}</#if></#assign>
 <#assign urlForm>jsp/site/Portal.jsp?page=appointment&view=getViewAppointmentCalendar&id_form=${form.idForm}<#if nbPlacesToTake ?? && nbPlacesToTake != 0>&nbPlacesToTake=${nbPlacesToTake!}</#if>&date_of_display=${date_of_display}#current_step</#assign>
 <@cContainer hasHeader=false class='pb-3 no-header'>
@@ -88,10 +104,16 @@
 					<#assign formGroupClassError><#if formGroupError!=''>has-error</#if></#assign>
 					<#assign formGroupHelp><#if formMessages.fieldLastNameHelp?? && formMessages.fieldLastNameHelp != ''>${formMessages.fieldLastNameHelp}</#if></#assign>
 					<#assign formGroupValue><#if appointment??>${appointment.lastName!}</#if></#assign>
-					<@cField class=formGroupClassError>
-						<@cInput name='lastname' class='form-control input-sm' maxlength=255 value=formGroupValue helpMsg=formGroupHelp errorMsg=formGroupError />
-						<@cLabel label=formMessages.fieldLastNameTitle for='lastname' required=true /> 
-					</@cField>
+                   <#if user?? && (user.lastName?has_content || preferred_user_name?has_content)>
+                     <@cInput type='hidden' name='lastname' value=formGroupValue />
+                      <p class="ridonely">${formGroupValue}</p> 
+  					<#else>
+                     <@cField class=formGroupClassError>
+  						<@cInput name='lastname' class='form-control input-sm' maxlength=255 value=formGroupValue helpMsg=formGroupHelp errorMsg=formGroupError />
+  						<@cLabel label=formMessages.fieldLastNameTitle for='lastname' required=true /> 
+  					</@cField>
+ 
+                  </#if>        
 				</@cCol>
 				<@cCol>
 					<#assign formGroupError = '' />
@@ -114,10 +136,15 @@
 					<#assign formGroupClassError><#if formGroupError!=''>has-error</#if></#assign>
 					<#assign formGroupHelp><#if formMessages.fieldFirstNameHelp?? && formMessages.fieldFirstNameHelp != ''>${formMessages.fieldFirstNameHelp}</></#if></#assign>
 					<#assign formGroupValue><#if appointment??>${appointment.firstName!}</#if></#assign>
+                   <#if user?? && (user.firstName?has_content)>
+                     <@cInput type='hidden' name='firstname' value=formGroupValue />
+                      <p class="ridonely">${formGroupValue}</p> 
+  					<#else>
 					<@cField class=formGroupClassError>
 						<@cInput name='firstname' class='form-control input-sm' maxlength=255 value=formGroupValue helpMsg=formGroupHelp errorMsg=formGroupError />
 						<@cLabel label=formMessages.fieldFirstNameTitle for='firstname' required=true /> 
-					</@cField>						
+					</@cField>	
+                   </#if>   
 				</@cCol>
 			</@cRow>
 			<@cRow>
@@ -142,12 +169,17 @@
 					<#assign formGroupClassError><#if formGroupError!=''>has-error</#if></#assign>
 					<#assign formGroupHelp><#if formMessages.fieldEmailNameHelp?? && formMessages.fieldEmailNameHelp != ''>${formMessages.fieldEmailNameHelp}</></#if></#assign>
 					<#assign formGroupValue><#if appointment??>${appointment.email!}</#if></#assign>
+                   <#if user?? && (user.email?has_content)>
+                     <@cInput type='hidden' name='email' value=formGroupValue />
+                      <p class="ridonely">${formGroupValue}</p> 
+  					<#else>
 					<@cField class=formGroupClassError>
 						<@cInput name='email' class='form-control input-sm' maxlength=255 value=formGroupValue helpMsg=formGroupHelp errorMsg=formGroupError />
 						<@cLabel label=formMessages.fieldEmailTitle for='email' required=true /> 
 					</@cField>
+                   </#if>
 				</@cCol>
-				<@cCol>
+               <@cCol>
 					<#assign formGroupError = '' />
 					<#if form_errors??>
 						<#assign hasDisplayableError = false>
@@ -165,13 +197,19 @@
 							</#list>
 						</#if>
 					</#if>
+                   <#if user?? && (user.email?has_content)>
+                     <@cInput type='hidden' name='emailConfirm' value=formGroupValue />
+                   <#else>
+                     
 					<#assign formGroupClassError><#if formGroupError!=''>has-error</#if></#assign>
 					<#assign formGroupHelp><#if formMessages.fieldConfirmationEmailHelp?? && formMessages.fieldConfirmationEmailHelp != ''>${formMessages.fieldConfirmationEmailHelp}</></#if></#assign>
 					<@cField class=formGroupClassError>
 						<@cInput name='emailConfirm' class='form-control input-sm' maxlength=255 helpMsg=formGroupHelp errorMsg=formGroupError />
 						<@cLabel label=formMessages.fieldConfirmationEmail for='emailConfirm' required=true /> 
 					</@cField>
+                     </#if>    
 				</@cCol>
+              
 				<#if form.maxPeoplePerAppointment &gt; 1>
 					<@cCol>
 						<#assign formGroupError = '' />

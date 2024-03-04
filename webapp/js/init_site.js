@@ -35,12 +35,6 @@ $( function(){
 	var loc = window.location.href, re = /#main/g, main_url='';
 	main_url = loc.match( re ) ? loc : loc + '#main';
 	$("#skip_url").attr('href', main_url );
-
-    /* Tooltip init                                               */
-    $('[data-bs-toggle="tooltip"]').tooltip();
-    /* Popover init                                               */
-    $('[data-bs-toggle="popover"]').popover();
-    
   
     /* Prevent Click onn disabled features                       */
     $(".disabled").click( function(e){
@@ -132,8 +126,8 @@ $( function(){
         e.preventDefault();
         $(this).children('.link-label').toggle();
         $(this).children('.fa-angle-up').toggleClass('hidden');
-        $(this).closest('.infostep-more').children('.extra').toggleClass('sr-only');
-        $(this).closest('.infostep-more').children('.ellipsis').toggleClass('sr-only');
+        $(this).closest('.infostep-more').children('.extra').toggleClass('visually-hidden');
+        $(this).closest('.infostep-more').children('.ellipsis').toggleClass('visually-hidden');
     });
 
     /* Navbar Scripts */
