@@ -1,3 +1,17 @@
 /****************************************************/
 /* SPECIFIC THEME CUSTOM SITE STYLES AND OVERRIDES  */
 /****************************************************/
+
+.form-content {background-color: rgba(255,255,255,0.03); padding: 30px;}
+.form-control {background-color: var(--main-color); border: 1px solid rgba(0,0,0,0.05); padding: 1rem; color: var(--w);}
+.form-control:focus {background-color: var(--main-color); border:none; color:#fff;}
+
+form .btn {display: inline-block;
+  padding: 2rem 1rem 2rem 1rem;
+  border: 0.125rem solid var( --alt-info-second-color );
+  border-radius: 2rem;
+  background-color: var( --alt-info-second-color );
+  color: var(--white-color);
+  font: 700 1rem/0 "Open Sans", sans-serif;
+  text-decoration: none;
+  transition: all 0.2s;}
