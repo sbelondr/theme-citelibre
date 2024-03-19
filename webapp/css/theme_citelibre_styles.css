@@ -2311,7 +2311,6 @@ input:required:invalid {
 /***  										***/
 /* 		Steps Commons	 					*/
 .step-title{
-	border-bottom: 2px solid var( --main-color ); 
  	height: 8rem;
 	display: flex;
 	align-items: center;
@@ -2344,7 +2343,7 @@ input:required:invalid {
     width: 2.4rem;
     background: none;
     text-align: center;
-    line-height: 3rem;
+    line-height: 2rem;
     content: attr(data-step);
     font-family: 'Montserrat', sans-serif;
     font-weight: 900;
@@ -2389,10 +2388,6 @@ input:required:invalid {
 .step-current{
 	background-color: var( --white-strong-color );
 	border-bottom: 2px solid var( --main-color );
-}
-
-.step-current .step-title{
-	background-color: var( --main-color );
 }
 
 .step-current .step-title h1{
@@ -2767,18 +2762,18 @@ a[name^="last_"]:before {
 
 	/* 		Step Title Icon / Number				 */
 	.step-current .step-title h1:before {
-		border: 4px solid var( --white-color );
+		border: 2px solid var( --white-color );
 		border-radius: 100%;
 		margin-right: 1.5rem;
-		height: 4rem;
-		width: 4rem;
-		background: none;
+		height: 2.4rem;
+		width: 2.4rem;
+		background: var(--main-danger-color);
 		text-align: center;
-		line-height: 3.5rem;
+		line-height: 2rem;
 		content: attr(data-step);
 		font-family: 'Montserrat', sans-serif;
 		font-weight: 900;
-		font-size: 2.7rem;
+		font-size: 1.7rem;
 	}
 
 	.step-done .step-content{
@@ -2786,10 +2781,10 @@ a[name^="last_"]:before {
 	}
 
 	.step-next .step-title h1:before {
-		border: 4px solid var( --main-color );
-		height: 4rem;
-		width: 4rem;
-		line-height: 3.5rem;
+		border: 2px solid var( --white-color );
+		height: 2.4rem;
+		width: 2.4rem;
+		line-height: 2rem;
 	}
 
 	.openstreetmap .form-geoloc {
