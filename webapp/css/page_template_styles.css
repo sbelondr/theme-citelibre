@@ -6,6 +6,12 @@
 	--form-input-color: #012d4a;
 }
 
+main {
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+}
+
 .form-content {background-color: rgba(255,255,255,0.03); padding: 30px;}
 .form-control {background-color: var(--form-input-color); border: 1px solid rgba(0,0,0,0.05); padding: 1rem; color: var(--white-color); font-size: 100%;}
 .form-control:focus {background-color: var(--form-input-color); border:none; color:var(--white-color);}
@@ -69,7 +75,7 @@ h2.stepTitle.current {color:#fff;}
 .formGroupContainer {margin-top:20px;}
 legend, .lead {font-weight:700; font-size:20px; border:none;}
 .lead {}
-.control-label, label {color:#0c518a; font-size:16px; font-weight:normal;}
+.control-label, label {font-size:16px; font-weight:normal;}
 .helpText {color:#747677; font-size:14px;}
 .helpBox {background:#fee367; padding:20px; border-radius:7px; font-size:1.3rem; z-index:1;}
 .helpBox::after {border:solid transparent; content:""; height:0; width:0; position:absolute; pointer-events:none; border-color:rgba(254,227,103,0); border-width:12px;}
