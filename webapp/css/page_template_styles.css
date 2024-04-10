@@ -48,8 +48,8 @@ form h3.card-header {
 }
 
 form .card-footer {
-  background-color: transparent;
-  border-top: none;
+	background-color: transparent;
+	border-top: none;
 }
 
 form fieldset legend {
@@ -61,6 +61,10 @@ form fieldset legend {
 
 form hr {
 	height: 0!important;
+}
+
+form .label-control {
+	color: var(--white-color);
 }
 
 /* STEPS */
@@ -85,6 +89,13 @@ ul.recap-step-list {margin-top:15px;}
 ul.recap-step-list, ul.recap-step-list li, ul.recap-step-list ul {list-style:none; padding-left:0;}
 ul.recap-step-list > li {font-weight:700; font-size:20px;}
 ul.recap-step-list > ul > li {padding:0;}
+
+.step-content .list-group-item-dark,
+.step-content .list-group-item {
+	background-color: initial;
+	color: var(--white-color);
+	border: 0;
+}
 
 /* DATEPICKER POSITIONING HACK */
 .fc-center {
@@ -142,9 +153,29 @@ td.fc-day.ui-widget-content.fc-today.ui-state-highlight {
 	border:none!important;
 }
 .fc-content-skeleton {padding-bottom: 0!important;}
-.ui-widget-header {background:transparent!important; border: 1px solid transparent!important;}
-.ui-widget-content {border: 1px solid transparent!important; background: transparent!important;}
-.ui-state-highlight {background: rgba(255,255,255,0.06)!important;}
-.fc-ltr .fc-time-grid .fc-event-container {
+#calendar .ui-widget-header {background:transparent!important; border: 1px solid transparent!important;}
+#calendar .ui-widget-content {border: 1px solid transparent!important; background: transparent!important;}
+#calendar .ui-state-highlight {background: rgba(255,255,255,0.06)!important;}*/
+#calendar .fc-ltr .fc-time-grid .fc-event-container {
     margin: 0 0 0 2px!important;
 }
+
+/* APPOINTMENT SEARCH PAGE */
+#advanced_search .form-control {padding: 0.3rem; background-color: var( --white-color); color: initial; font-size: initial; border:1px solid white;}
+#advanced_search .input-group {margin-bottom: 5px;}
+#advanced_search select {margin-bottom: 5px!important;}
+#map_col #occupancyRate {margin-bottom: 50px; height: auto!important;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
