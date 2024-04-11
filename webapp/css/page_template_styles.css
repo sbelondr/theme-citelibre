@@ -67,6 +67,14 @@ form .label-control {
 	color: var(--white-color);
 }
 
+form .form-control:disabled, form .form-control[readonly] {
+  background-color: var(--form-input-color);
+}
+
+form #legendCancelAppointment {
+	display: none;
+}
+
 /* STEPS */
 .currentStepTitleRow {background-color: rgba(255,255,255,0.03); position: relative;}
 .nextStepTitleRow {background-color:rgba(0,0,0,0.05);}
