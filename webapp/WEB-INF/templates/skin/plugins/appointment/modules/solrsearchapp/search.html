@@ -13,26 +13,30 @@
 #occupancyRate {background-color:#fff;height:3rem}
 #occupancyRate p{color:var(--main-color); font-size:.85rem; margin-bottom:0 }
 #occupancyRate p img{width:15px; max-width: 100% }
-#tgSearchForm {position:absolute;}
+#tgSearchForm {position:absolute;bottom:5px;left:5px;z-index:1}
 #advanced_search .form-switch .form-check-input:checked + .form-check-label{ font-weight: 600 }
+
 .leaflet-container {font:14px/1.5 "Montserrat",sans-serif!important;}
 .leaflet-container > #tgSearchForm {color:#fff; font-family:inherit!important; font-size:initial!important; line-height:initial!important;}
 .leaflet-div-icon {background:none!important; border:none!important;}
 .leaflet-popup-content-wrapper, .leaflet-popup-tip {background: rgba(255,255,255,0.9)!important;}
 .leaflet-popup-content-wrapper {border-radius:4px !important;}
-.leaflet-popup-content p {color:var(--main-color); }
+.leaflet-popup-content p {color:var(--main-color); margin-top: 0 }
 .leaflet-marker-icon > .number {color:#000; text-shadow:2px 1px 1px #fff; background:rgba(255,255,255,0.8); border-radius:50%; width:25px; height:20px; padding:2px; text-align:center; font-size:80%; display:none;}
 .marker-cluster-small {background-color: rgba(128, 254, 184, 0.6)!important;}
 .marker-cluster-small div {background-color: rgba(9, 255, 119, 0.6)!important;}
 .marker-cluster div {font:12px "Montserrat",sans-serif!important;}
-#marker_popup a.btn {margin-top:15px;}
-#marker_popup a {color:#df225a; font-size:120%;}
-#marker_popup a:hover {text-decoration:underline; text-shadow:none;}
-#marker_popup a:focus {text-shadow:none;}
-#marker_popup h2 {font-size:20px; margin-bottom:0px;}
-#marker_popup p:first-of-type {margin:5px 0 25px 0; font-size:90%;}
-#marker_popup p:nth-of-type(2) {margin:0 0 5px 0;}
-#marker_popup p:nth-of-type(3) {color:#df225a;}
+
+#marker_popup { display: flex; justify-content: center; align-items: center; flex-direction: column;}
+[data-theme="dark"] #marker_popup, #marker_popup a.btn {margin-top:15px;}
+[data-theme="dark"] .leaflet-popup-content p { color: var(--dark-color) !important }
+[data-theme="dark"] #marker_popup,#marker_popup a {color:var(--main-danger-color) !important; font-size:120%; text-decoration: none !important;}
+[data-theme="dark"] #marker_popup,#marker_popup a:hover {text-decoration:underline; text-shadow:none;}
+[data-theme="dark"] #marker_popup,#marker_popup a:focus {text-shadow:none;}
+[data-theme="dark"] #marker_popup,#marker_popup h2 { font-size: 20px; margin-bottom: 0px; color: var(--alt-main-color) !important; }
+[data-theme="dark"] #marker_popup,#marker_popup p:nth-of-type(2) {margin:0 0 5px 0;font-weight: 500;}
+[data-theme="dark"] #marker_popup,#marker_popup p:nth-of-type(2) + a {font-weight: 700;font-size:100%;}
+[data-theme="dark"] #marker_popup .btn-solid-reg, #marker_popup .btn-solid-reg {font-weight: 600; font-size:80%;margin-top: 15px;border: 1px solid;}
 </style>    
 <div class="row">
     <div class="col">
@@ -49,7 +53,7 @@
                         <#list results.values as groupcommand>
 							<#if  groupcommand.values?size gt 0>
 								<h3>#i18n{module.appointment.solrsearchapp.map}</h3>
-								<p><a href="jsp/site/Portal.jsp?page=appointmentsearch&view=search<#if category??>&amp;category=${category}</#if>&amp;nb_consecutive_slots=${nb_consecutive_slots!'1'}&amp;role=${role!'none'}#rdv_liste">#i18n{module.appointment.solrsearchapp.displayAvailableSlots}</a></p><p class="visible-xs">#i18n{module.appointment.solrsearchapp.mapAvailableForBigScreen}</p>
+								<p><a href="jsp/site/Portal.jsp?page=appointmentsearch&view=search<#if category??>&amp;category=${category}</#if>&amp;nb_consecutive_slots=${nb_consecutive_slots!'1'}&amp;role=${role!'none'}#rdv_liste">#i18n{module.appointment.solrsearchapp.displayAvailableSlots}</a></p><p class="d-block d-sm-none">#i18n{module.appointment.solrsearchapp.mapAvailableForBigScreen}</p>
 							<#else>
 								<h3 class="text-warning" style="margin-bottom: 30px;font-size:30px"><i class="fa fa-exclamation-triangle"></i> #i18n{module.appointment.solrsearchapp.noMoreAvailableSlots}</h3>
 							</#if>
@@ -62,7 +66,7 @@
                     <div class="row">
                         <div id="map" class="col-xs-12">
                             <div class="leaflet-appointment-search" style="height:520px;"></div>
-                            <a class="btn btn-info" id="tgSearchForm" href="#">
+                            <a class="btn btn-primary" id="tgSearchForm" href="#">
                                 <i class="fa fa-chevron-left hidden-xs hidden-sm"></i>
                                 <!-- <span class="hidden-xs hidden-sm"> #i18n{module.appointment.solrsearchapp.search}</span> -->
                             </a>

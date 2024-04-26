@@ -49,3 +49,7 @@
 [data-theme="dark"] .img-fluid{
   filter: grayscale(1) contrast(1.2) !important;
 }
+
+[data-theme="dark"] .input-group-text{
+  color: var( --dark-color ) !important;
+}
