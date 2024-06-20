@@ -6,11 +6,11 @@
         <version>3.2.2</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <groupId>fr.paris.sam.themes</groupId>
-    <artifactId>site-sam-citelibre</artifactId>
+    <groupId>com.sbelondr</groupId>
+    <artifactId>theme-citelibre</artifactId>
     <packaging>lutece-site</packaging>
     <name>Site Theme CiteLibre</name>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>v1.0.2</version>
     <description></description>
     <scm>
         <connection>scm:git:https://github.com/sbelondr/theme-citelibre.git</connection>
