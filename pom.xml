@@ -6,8 +6,8 @@
         <version>3.2.2</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <groupId>fr.paris.lutece.themes</groupId>
-    <artifactId>site-theme-citelibre</artifactId>
+    <groupId>fr.paris.sam.themes</groupId>
+    <artifactId>site-sam-citelibre</artifactId>
     <packaging>lutece-site</packaging>
     <name>Site Theme CiteLibre</name>
     <version>1.0.0-SNAPSHOT</version>
