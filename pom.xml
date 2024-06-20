@@ -13,10 +13,10 @@
     <version>1.0.0-SNAPSHOT</version>
     <description></description>
     <scm>
-        <connection>scm:git:https://github.com/citelibre/theme-citelibre.git</connection>
-        <developerConnection>scm:git:https://github.com/citelibre/theme-citelibre.git</developerConnection>
+        <connection>scm:git:https://github.com/sbelondr/theme-citelibre.git</connection>
+        <developerConnection>scm:git:https://github.com/sbelondr/theme-citelibre.git</developerConnection>
         <tag>HEAD</tag>
-        <url>https://github.com/citelibre/theme-citelibre.git</url>
+        <url>https://github.com/sbelondr/theme-citelibre.git</url>
     </scm>
     <repositories>
         <repository>
