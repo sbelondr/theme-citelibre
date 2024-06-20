@@ -22,6 +22,9 @@ jobs:
       - name: Build with Maven
         run: mvn clean install
 
+      - name: List target directory for debugging
+        run: ls -la target
+
       - name: Archive Artifacts
         uses: actions/upload-artifact@v3
         with:
@@ -37,6 +40,9 @@ jobs:
         with:
           name: built-artifact
           path: ./
+
+      - name: List target directory for debugging
+        run: ls -laR
 
       - name: Create GitHub Release
         id: create_release
